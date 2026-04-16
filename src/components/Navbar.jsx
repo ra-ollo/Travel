@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const [navSolid, setNavSolid] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      // Calculates half of the total scrollable height
       const halfPage = window.innerHeight / 2;
       setNavSolid(window.scrollY > halfPage);
     };
@@ -29,17 +29,38 @@ export default function Navbar() {
         }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+        
+        {/* Logo */}
         <Link to="/" className="text-2xl font-heading">
           TravelCo
         </Link>
 
-        <nav className="space-x-6 text-lg font-semibold">
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex space-x-6 text-lg font-semibold">
           <Link to="/">Home</Link>
           <Link to="/packages">Packages</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
         </nav>
+
+        {/* Mobile Hamburger */}
+        <button 
+          className="md:hidden text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg flex flex-col items-center py-4 space-y-4">
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/packages" onClick={() => setMenuOpen(false)}>Packages</Link>
+          <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        </div>
+      )}
     </motion.header>
   );
 }
