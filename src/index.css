@@ -1,0 +1,45 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-conic {
+    background: conic-gradient(
+      from 90deg,
+      #ff6b6b,
+      #feca57,
+      #48dbfb,
+      #1dd1a1,
+      #5f27cd,
+      #ff6b6b
+    );
+  }
+
+  /* Blue version for hover */
+  .bg-conic-blue {
+    background: conic-gradient(
+      from 90deg,
+      #60a5fa,
+      #3b82f6,
+      #2563eb,
+      #1d4ed8,
+      #1e40af,
+      #60a5fa
+    );
+  }
+}
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Optional */
+body {
+  @apply bg-gray-50 text-gray-800;
+}
+
+body { @apply bg-gray-50 text-gray-800; }
