@@ -15,7 +15,7 @@ const slides = [
     img: '/images/heli.webp',
     subtitle: 'Spiritual Awakening',
     title: 'Go By Air - Char Dham Helicopter Tour',
-    desc: '"Skip the Trek, Secure the Soul: Char Dham by Air"'
+    desc: '"Char Dham Yatra by helicopter makes us realize that the natural beauty of the Himalayas is nothing but the spark of the splendor of Sri Krishna."'
   },
   {
     id: 2,

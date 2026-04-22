@@ -6,7 +6,7 @@ export default [
     title: 'Kedarnath Tour Package (Ek Dham Tour From Haridwar)',
     days: '3 Nights / 4 Days',
     price: 7500,
-    image: 'https://res.cloudinary.com/dvez4kbx9/image/upload/q_auto/f_auto/v1776273571/rajasthan-fort_r9rukf.jpg',
+    image: '/images/ked.jfif',
     inclusions: [
       '02 Night Hotel Stay in Gouptkashi',
       '01 Night Camp Stay in Kedarnath',
@@ -21,7 +21,7 @@ export default [
     title: 'Badrinath Tour Package (Ek Dham Tour From Haridwar)',
     days: '3 Days / 4 Nights',
     price: 7500,
-    image: '/images/rajasthan-fort.webp',
+    image: '/images/badri.jfif',
     inclusions: [
       '02 Night Hotel Stay in Rudraprayag',
       '01 Night Hotel Stay in Badrinath',
@@ -53,7 +53,7 @@ export default [
     title: 'Gangotri Kedarnath Badrinath Tour Package (Teen Dham Tour From Haridwar)',
     days: '07 Nights / 08 Days',
     price: 15500,
-    image: '/images/b.webp',
+    image: '/images/a.webp',
     inclusions: [
       '02 Night Hotel Stay in Uttarkashi',
       '02 Night Hotel Stay in Gouptkashi',
@@ -86,7 +86,7 @@ export default [
     title: 'Gangotri Kedarnath Badrinath Tour Package (Teen Dham Tour From Haridwar)',
     days: '4 Days / 5 Nights',
     price: 9500,
-    image: '/images/a.webp',
+    image: '/images/ai.jfif',
     inclusions: [
       '01 Night Hotel Stay in Haridwar',
       '02 Night Hotel Stay in Gouptkashi',
@@ -102,7 +102,7 @@ export default [
     title: 'Badrinath Tour Package (Ek Dham Tour From Delhi)',
     days: '3 Days / 4 Nights',
     price: 9500,
-    image: '/images/a.webp',
+    image: '/images/badri.jfif',
     inclusions: [
       '01 Night Hotel Stay in Haridwar',
       '02 Night Hotel Stay in Rudraprayag',
@@ -118,7 +118,7 @@ export default [
     title: 'Kedarnath Badrinath Tour Package (Do Dham Tour From Delhi)',
     days: '5 Days / 6 Nights',
     price: 15500,
-    image: '/images/b.webp',
+    image: '/images/hari.jfif',
     inclusions: [
       '01 Night Hotel Stay in Haridwar',
       '02 Night Hotel Stay in Gouptkashi',
@@ -136,7 +136,7 @@ export default [
     title: 'Yamounotri Gangotri Kedarnath Badrinath Tour Package (Char Dham Tour From Delhi)',
     days: '9 Days / 10 Nights',
     price: 20500,
-    image: '/images/b.webp',
+    image: '/images/shiv.jfif',
     inclusions: [
       '02 Night Hotel Stay in Barkot',
       '02 Night Hotel Stay in Uttarkashi',
