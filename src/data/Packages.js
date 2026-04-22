@@ -21,7 +21,7 @@ export default [
     title: 'Badrinath Tour Package (Ek Dham Tour From Haridwar)',
     days: '3 Days / 4 Nights',
     price: 7500,
-    image: '/images/kashmir-valley.webp',
+    image: '/images/rajasthan-fort.webp',
     inclusions: [
       '02 Night Hotel Stay in Rudraprayag',
       '01 Night Hotel Stay in Badrinath',
@@ -36,7 +36,7 @@ export default [
     title: 'Kedarnath Badrinath Tour Package (Do Dham Tour From Haridwar)',
     days: '05 Nights / 06 Days',
     price: 13500,
-    image: '/images/a.webp',
+    image: '/images/rajasthan-fort.jpg',
     inclusions: [
       '02 Night Hotel Stay in Gouptkashi',
       '01 Night Camp Stay in Kedarnath',

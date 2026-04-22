@@ -10,6 +10,13 @@ const slides = [
     title: 'Char Dham Yatra 2026',
     desc: 'Experience the divine journey to Yamunotri, Gangotri, Kedarnath & Badrinath with curated premium travel.'
   },
+   {
+    id: 7,
+    img: '/images/heli.webp',
+    subtitle: 'Spiritual Awakening',
+    title: 'Go By Air - Char Dham Helicopter Tour',
+    desc: '"Skip the Trek, Secure the Soul: Char Dham by Air"'
+  },
   {
     id: 2,
     img: '/images/kedarnath.webp',
@@ -44,7 +51,8 @@ const slides = [
     subtitle: 'Spiritual Awakening',
     title: 'Complete Char Dham Package',
     desc: 'Luxury stays, guided tours & seamless travel for your sacred journey.'
-  }
+  },
+
 ];
 
 export default function HeroSlider() {
