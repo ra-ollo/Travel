@@ -9,10 +9,12 @@ export default function PackageCard({ title, days, price, image, inclusions = []
       {/* IMAGE */}
       <div className="relative overflow-hidden">
         <img
-          src={image}
-          alt={title}
-          className="w-full h-52 object-cover group-hover:scale-105 transition duration-500"
-        />
+  src={image}
+  alt={title}
+  loading="lazy"
+  decoding="async"
+  className="w-full h-52 object-cover group-hover:scale-105 transition duration-500"
+/>
 
         {/* SMART TAGS */}
         {featured && (
