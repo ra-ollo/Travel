@@ -10,7 +10,7 @@ export default function Packages() {
         <title>Our Packages | Best Deal</title>
       </Helmet>
 
-      <div className="max-w-7xl mx-auto my-20 px-4">
+      <div className="max-w-7xl mx-auto pt-20 md:pt-24 my-20 px-4">
         <h1 className="text-4xl font-bold text-center mb-12">
           Tour Packages
         </h1>
