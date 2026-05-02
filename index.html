@@ -1,14 +1,45 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travel Agency - Explore India</title>
-  <meta name="description" content="Affordable travel packages across India. Book your dream trip now!" />
-  <link rel="icon" href="/favicon.ico" />
 
-  <!-- Google Analytics 4 -->
+  <!-- SEO Title -->
+  <title>Char Dham Yatra | Pawan Hans Limited</title>
+
+  <!-- SEO Description -->
+  <meta name="description" content="Book affordable Char Dham Yatra packages including Kedarnath, Badrinath, Gangotri & Yamunotri. Safe, trusted and comfortable travel across India with Pawan Hans Limited." />
+
+  <!-- Keywords -->
+  <meta name="keywords" content="Char Dham Yatra, Kedarnath tour package, Badrinath Yatra, Gangotri Yamunotri trip, Uttarakhand pilgrimage, India travel packages, Pawan Hans Limited travel" />
+
+  <meta name="author" content="Pawan Hans Limited" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Favicon (Tab Icon) -->
+  <link rel="icon" type="image/x-icon" href="/fav.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Char Dham Yatra Packages | Pawan Hans Limited" />
+  <meta property="og:description" content="Affordable and safe Char Dham Yatra packages across India. Book your spiritual journey today." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Char Dham Yatra Packages | Pawan Hans Limited" />
+  <meta name="twitter:description" content="Book affordable Char Dham Yatra packages with trusted travel service." />
+  <meta name="twitter:image" content="/og-image.jpg" />
+
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB9Z1MX65"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,17 +48,29 @@
     gtag('config', 'G-TSB9Z1MX65');
   </script>
 
-  <!-- Google Ads Global Site Tag -->
+  <!-- Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789"></script>
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-123456789');
   </script>
 
-  <!-- SEO: allow search engines to see sitemap -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <!-- Structured Data (SEO Boost) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Pawan Hans Limited",
+    "url": "https://yourdomain.com/",
+    "description": "Affordable Char Dham Yatra and India travel packages including Kedarnath, Badrinath, Gangotri and Yamunotri.",
+    "areaServed": "India"
+  }
+  </script>
+
 </head>
+
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>

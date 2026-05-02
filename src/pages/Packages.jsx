@@ -7,7 +7,7 @@ export default function Packages() {
   return (
     <>
       <Helmet>
-        <title>Our Packages | TravelCo</title>
+        <title>Our Packages | Pawan Hans Limited</title>
       </Helmet>
 
       <div className="max-w-7xl mx-auto my-20 px-4">

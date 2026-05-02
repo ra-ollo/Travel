@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+
 import HeroSlider from '../components/HeroSlider';
 import PackageCard from '../components/PackageCard';
 import BlogTeaser from '../components/BlogTeaser';
@@ -10,21 +12,44 @@ import blogs from '../data/Blog.js';
 
 export default function Home() {
 
+  const navigate = useNavigate();
+
   // ✅ MINI FORM STATE
   const [miniForm, setMiniForm] = useState({
     name: '',
     phone: ''
   });
 
+  const [success, setSuccess] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+
+  // ✅ Check cooldown on load
+  useEffect(() => {
+    checkBlocked();
+  }, []);
+
+  const checkBlocked = () => {
+    const last = localStorage.getItem("formSubmittedAt");
+    if (!last) return;
+
+    const diff = Date.now() - parseInt(last);
+    if (diff < 5 * 60 * 1000) {
+      setBlocked(true);
+
+      // auto-unblock after remaining time
+      setTimeout(() => setBlocked(false), 5 * 60 * 1000 - diff);
+    }
+  };
+
   const isMiniValid =
     miniForm.name.trim() !== '' &&
-    /^\d{10}$/.test(miniForm.phone);
+    /^\d{10}$/.test(miniForm.phone) &&
+    !blocked;
 
   const handleMiniChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "phone") {
-      // allow only numbers
       const cleaned = value.replace(/\D/g, '');
       setMiniForm({ ...miniForm, phone: cleaned });
     } else {
@@ -32,13 +57,54 @@ export default function Home() {
     }
   };
 
+  const handleMiniSubmit = (e) => {
+    e.preventDefault();
+
+    if (blocked) return;
+
+    emailjs.send(
+      'service_1fxjzfl',
+      'template_v974ogo',
+      {
+        from_name: miniForm.name,
+        phone: miniForm.phone,
+        message: "Callback request from homepage",
+        from_email: "no-reply@site.com"
+      }
+    )
+    .then(() => {
+      setSuccess(true);
+
+      // ✅ store submission time
+      localStorage.setItem("formSubmittedAt", Date.now());
+      setBlocked(true);
+
+      setMiniForm({
+        name: '',
+        phone: ''
+      });
+
+      // auto unblock after 5 mins
+      setTimeout(() => setBlocked(false), 5 * 60 * 1000);
+
+      // show popup then redirect
+      setTimeout(() => {
+        setSuccess(false);
+        navigate("/");
+      }, 2000);
+    })
+    .catch((err) => {
+      console.log("EmailJS Error:", err);
+    });
+  };
+
   return (
     <>
       <Helmet>
-        <title>TravelCo - Explore India</title>
+        <title>Pawan Hans Limited</title>
         <meta
           name="description"
-          content="Discover affordable travel packages and plan your next adventure with TravelCo."
+          content="Discover affordable travel packages and plan your next adventure."
         />
       </Helmet>
 
@@ -83,7 +149,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PREMIUM CONTACT STRIP */}
+      {/* CONTACT STRIP */}
       <section className="py-24 bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 blur-3xl bg-white"></div>
 
@@ -113,10 +179,7 @@ export default function Home() {
 
               {/* RIGHT FORM */}
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("We’ll contact you shortly 🚀");
-                }}
+                onSubmit={handleMiniSubmit}
                 className="bg-white/20 backdrop-blur-lg p-6 rounded-2xl space-y-4 border border-white/30"
               >
 
@@ -124,6 +187,7 @@ export default function Home() {
                   type="text"
                   name="name"
                   placeholder="Your Name"
+                  value={miniForm.name}
                   onChange={handleMiniChange}
                   className="w-full p-3 rounded-lg bg-white/80 text-gray-800 outline-none"
                 />
@@ -132,9 +196,16 @@ export default function Home() {
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
+                  value={miniForm.phone}
                   onChange={handleMiniChange}
                   className="w-full p-3 rounded-lg bg-white/80 text-gray-800 outline-none"
                 />
+
+                {blocked && (
+                  <p className="text-yellow-200 text-sm">
+                    You can submit again after 5 minutes ⏳
+                  </p>
+                )}
 
                 <button
                   type="submit"
@@ -145,7 +216,7 @@ export default function Home() {
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
                   }`}
                 >
-                  Get Callback
+                  {blocked ? "Please Wait..." : "Get Callback"}
                 </button>
 
               </form>
@@ -156,6 +227,22 @@ export default function Home() {
       </section>
 
       <FAQ />
+
+      {/* SUCCESS POPUP */}
+      {success && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
+          <div className="bg-white px-8 py-6 rounded-2xl shadow-2xl text-center">
+            <div className="text-4xl mb-2">✅</div>
+            <h2 className="text-xl font-bold text-green-600">
+              Request Sent!
+            </h2>
+            <p className="text-gray-600 text-sm">
+              We’ll call you soon 🚀
+            </p>
+          </div>
+        </div>
+      )}
+
     </>
   );
 }
