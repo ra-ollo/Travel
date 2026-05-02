@@ -36,7 +36,7 @@ export default [
     title: 'Kedarnath Badrinath Tour Package (Do Dham Tour From Haridwar)',
     days: '05 Nights / 06 Days',
     price: 13500,
-    image: '/images/rajasthan-fort.jpg',
+    image: '/images/hari.jfif',
     inclusions: [
       '02 Night Hotel Stay in Gouptkashi',
       '01 Night Camp Stay in Kedarnath',

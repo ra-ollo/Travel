@@ -14,16 +14,14 @@ export default function Home() {
 
   const navigate = useNavigate();
 
-  // ✅ MINI FORM STATE
   const [miniForm, setMiniForm] = useState({
     name: '',
     phone: ''
   });
 
-  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [blocked, setBlocked] = useState(false);
 
-  // ✅ Check cooldown on load
   useEffect(() => {
     checkBlocked();
   }, []);
@@ -36,8 +34,9 @@ export default function Home() {
     if (diff < 5 * 60 * 1000) {
       setBlocked(true);
 
-      // auto-unblock after remaining time
-      setTimeout(() => setBlocked(false), 5 * 60 * 1000 - diff);
+      setTimeout(() => {
+        setBlocked(false);
+      }, 5 * 60 * 1000 - diff);
     }
   };
 
@@ -62,6 +61,8 @@ export default function Home() {
 
     if (blocked) return;
 
+    setLoading(true);
+
     emailjs.send(
       'service_1fxjzfl',
       'template_v974ogo',
@@ -73,9 +74,8 @@ export default function Home() {
       }
     )
     .then(() => {
-      setSuccess(true);
 
-      // ✅ store submission time
+      // store submission time
       localStorage.setItem("formSubmittedAt", Date.now());
       setBlocked(true);
 
@@ -84,17 +84,14 @@ export default function Home() {
         phone: ''
       });
 
-      // auto unblock after 5 mins
-      setTimeout(() => setBlocked(false), 5 * 60 * 1000);
-
-      // show popup then redirect
-      setTimeout(() => {
-        setSuccess(false);
-        navigate("/");
-      }, 2000);
+      // redirect to thank you page
+      navigate("/thank-you");
     })
     .catch((err) => {
       console.log("EmailJS Error:", err);
+    })
+    .finally(() => {
+      setLoading(false);
     });
   };
 
@@ -165,8 +162,7 @@ export default function Home() {
                 </h2>
 
                 <p className="text-white/80">
-                  Talk to our travel experts and get a personalized itinerary,
-                  best prices & premium experience.
+                  Talk to our travel experts and get a personalized itinerary.
                 </p>
 
                 <Link
@@ -209,14 +205,14 @@ export default function Home() {
 
                 <button
                   type="submit"
-                  disabled={!isMiniValid}
+                  disabled={!isMiniValid || loading}
                   className={`w-full py-3 rounded-full font-semibold transition ${
                     isMiniValid
                       ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:scale-105"
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
                   }`}
                 >
-                  {blocked ? "Please Wait..." : "Get Callback"}
+                  {blocked ? "Please Wait..." : loading ? "Sending..." : "Get Callback"}
                 </button>
 
               </form>
@@ -227,22 +223,6 @@ export default function Home() {
       </section>
 
       <FAQ />
-
-      {/* SUCCESS POPUP */}
-      {success && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
-          <div className="bg-white px-8 py-6 rounded-2xl shadow-2xl text-center">
-            <div className="text-4xl mb-2">✅</div>
-            <h2 className="text-xl font-bold text-green-600">
-              Request Sent!
-            </h2>
-            <p className="text-gray-600 text-sm">
-              We’ll call you soon 🚀
-            </p>
-          </div>
-        </div>
-      )}
-
     </>
   );
 }

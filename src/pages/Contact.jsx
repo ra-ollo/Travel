@@ -14,7 +14,6 @@ export default function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
@@ -22,7 +21,6 @@ export default function Contact() {
     checkBlocked();
   }, []);
 
-  // ✅ Check cooldown
   const checkBlocked = () => {
     const last = localStorage.getItem("formSubmittedAt");
     if (!last) return;
@@ -32,7 +30,6 @@ export default function Contact() {
     if (diff < 5 * 60 * 1000) {
       setBlocked(true);
 
-      // auto-unblock after remaining time
       setTimeout(() => {
         setBlocked(false);
       }, 5 * 60 * 1000 - diff);
@@ -75,9 +72,8 @@ export default function Contact() {
       }
     )
     .then(() => {
-      setSuccess(true);
 
-      // ✅ store timestamp (shared with Home page)
+      // store timestamp
       localStorage.setItem("formSubmittedAt", Date.now());
       setBlocked(true);
 
@@ -88,14 +84,8 @@ export default function Contact() {
         message: ''
       });
 
-      // auto-unblock after 5 mins
-      setTimeout(() => setBlocked(false), 5 * 60 * 1000);
-
-      // optional redirect after popup
-      setTimeout(() => {
-        setSuccess(false);
-        navigate("/");
-      }, 2000);
+      // redirect to thank you page
+      navigate("/thank-you");
     })
     .catch((err) => {
       console.log(err);
@@ -136,7 +126,6 @@ export default function Contact() {
             value={form.message} onChange={handleChange}
             className="w-full p-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
 
-          {/* ✅ Block message */}
           {blocked && (
             <p className="text-yellow-600 text-sm text-center">
               You can submit again after 5 minutes ⏳
@@ -157,22 +146,6 @@ export default function Contact() {
 
         </form>
       </div>
-
-      {/* ✅ SUCCESS POPUP */}
-      {success && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
-          <div className="bg-white px-10 py-8 rounded-2xl shadow-2xl text-center">
-            <div className="text-5xl mb-3">✅</div>
-            <h2 className="text-2xl font-bold text-green-600">
-              Sent Successfully!
-            </h2>
-            <p className="text-gray-600 mt-2">
-              We’ll contact you shortly 🚀
-            </p>
-          </div>
-        </div>
-      )}
-
     </div>
   );
 }
