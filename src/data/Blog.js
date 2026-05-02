@@ -39,7 +39,7 @@ This journey is not just travel — it is a life-changing spiritual experience.
     id: 2,
     title: 'Kedarnath यात्रा: Complete Travel Tips',
     snippet: 'Planning Kedarnath? Here are important tips for trekking, weather and stay...',
-    image: '/images/kedarnath.jpg',
+    image: '/images/badrinath.webp',
     content: `
 Kedarnath is one of the most sacred temples dedicated to Lord Shiva.
 
