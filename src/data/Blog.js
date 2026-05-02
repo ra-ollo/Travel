@@ -4,7 +4,7 @@ export default [
     id: 1,
     title: 'Complete Guide to Char Dham Yatra 2026',
     snippet: 'Everything you need to know before starting your sacred Char Dham journey in Uttarakhand...',
-    image: '/images/chardham.jpg',
+    image: '/images/kashmir-valley.jpeg',
     content: `
 The Char Dham Yatra is one of the most sacred pilgrimages in India, covering four holy shrines — Yamunotri, Gangotri, Kedarnath, and Badrinath.
 
