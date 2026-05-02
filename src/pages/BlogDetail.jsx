@@ -7,7 +7,7 @@ export default function BlogDetail() {
   if (!blog) return <div className="text-center py-20">Blog not found</div>;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-20">
+    <div className="max-w-4xl mx-auto pt-20 md:pt-24 my-16 px-4">
 
       <img
         src={blog.image}
