@@ -8,6 +8,7 @@ import Packages from './pages/Packages';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
 import Contact from './pages/Contact';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       </Routes>
       <FloatingButtons /> 
       <Footer />
+      <Analytics />
     </BrowserRouter>
   );
 }

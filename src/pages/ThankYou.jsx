@@ -5,6 +5,14 @@ export default function ThankYou() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    //  Google Ads Conversion Tracking
+    if (window.gtag) {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18139764842/Izf4CMWaq6gcEOqw28lD'
+      });
+    }
+
     const timer = setTimeout(() => {
       navigate("/");
     }, 3000); // redirect after 3 sec
