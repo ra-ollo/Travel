@@ -75,6 +75,13 @@ export default function Home() {
     )
     .then(() => {
 
+      // ✅ GOOGLE ADS CONVERSION TRACKING (MINI FORM)
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18139764842/Izf4CMWaq6gcEOqw28lD'
+        });
+      }
+
       // store submission time
       localStorage.setItem("formSubmittedAt", Date.now());
       setBlocked(true);
@@ -155,7 +162,6 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-10 items-center">
 
-              {/* LEFT */}
               <div className="text-white space-y-5">
                 <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                   Plan Your Dream Char Dham Yatra
@@ -173,7 +179,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* RIGHT FORM */}
               <form
                 onSubmit={handleMiniSubmit}
                 className="bg-white/20 backdrop-blur-lg p-6 rounded-2xl space-y-4 border border-white/30"

@@ -73,6 +73,13 @@ export default function Contact() {
     )
     .then(() => {
 
+      // ✅ GOOGLE ADS CONVERSION TRACKING
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18139764842/Izf4CMWaq6gcEOqw28lD'
+        });
+      }
+
       // store timestamp
       localStorage.setItem("formSubmittedAt", Date.now());
       setBlocked(true);
