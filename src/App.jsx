@@ -10,6 +10,7 @@ import BlogDetail from './pages/BlogDetail';
 import Contact from './pages/Contact';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import PrivacyPolicy from './pages/privacy_policy';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
       </Routes>
       <FloatingButtons /> 
       <Footer />
