@@ -6,7 +6,7 @@ import blogs from '../data/Blog.js';
 export default function Blog() {
   return (
     <>
-      <Helmet><title>Char Dham | Pawan Hans Limited</title></Helmet>
+      <Helmet><title>Char Dham | CX Char Dham Yatra</title></Helmet>
       <div className="max-w-4xl mx-auto pt-20 md:pt-24 my-16 px-4">
         <h1 className="text-3xl font-heading font-bold mb-6">Our Blog</h1>
         <div className="space-y-8">

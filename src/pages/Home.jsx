@@ -162,7 +162,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Pawan Hans Limited</title>
+        <title>CX Char Dham Yatra</title>
 
         <meta
           name="description"

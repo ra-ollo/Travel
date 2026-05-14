@@ -5,7 +5,7 @@ function PrivacyPolicy() {
     <>
 
     <Helmet>
-            <title>Privacy Policy | Pawan Hans Limited</title>
+            <title>Privacy Policy | CX Char Dham Yatra</title>
           </Helmet>
 
     <div className="max-w-7xl mx-auto pt-20 md:pt-24 my-20 px-4">
@@ -15,7 +15,7 @@ function PrivacyPolicy() {
       
 
       <p>
-        Pawan Hans Limited respects your privacy and is committed to protecting your personal information.
+        CX Char Dham Yatra respects your privacy and is committed to protecting your personal information.
       </p>
 
       <p>
@@ -51,8 +51,8 @@ function PrivacyPolicy() {
       </p>
 
       <p>
-        <strong>Pawan Hans Limited</strong><br />
-        https://pawanhanslimited.in
+        <strong>CX Char Dham Yatra</strong><br />
+        https://cxchardham.online
       </p>
     </div>
     </>
