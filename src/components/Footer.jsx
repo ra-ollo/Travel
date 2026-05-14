@@ -1,10 +1,13 @@
 // src/components/Footer.jsx
 
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-200 py-10">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
 
+        {/* Brand Section */}
         <div>
           <h3 className="text-xl font-semibold mb-2">
             CX Char Dham Yatra
@@ -20,56 +23,60 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* Quick Links */}
         <div>
           <h4 className="text-lg font-semibold mb-2">
             Quick Links
           </h4>
 
           <ul className="space-y-2">
+
             <li>
-              <a href="/" className="hover:underline">
+              <Link to="/" className="hover:underline">
                 Home
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="/packages" className="hover:underline">
+              <Link to="/packages" className="hover:underline">
                 Packages
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="/about-us" className="hover:underline">
+              <Link to="/about-us" className="hover:underline">
                 About Us
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="/privacy-policy" className="hover:underline">
+              <Link to="/privacy-policy" className="hover:underline">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="/terms-conditions" className="hover:underline">
+              <Link to="/terms-conditions" className="hover:underline">
                 Terms & Conditions
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="/refund-policy" className="hover:underline">
+              <Link to="/refund-policy" className="hover:underline">
                 Cancellation & Refund Policy
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="/contact" className="hover:underline">
+              <Link to="/contact" className="hover:underline">
                 Contact
-              </a>
+              </Link>
             </li>
+
           </ul>
         </div>
 
+        {/* Contact Section */}
         <div>
           <h4 className="text-lg font-semibold mb-2">
             Contact Us
