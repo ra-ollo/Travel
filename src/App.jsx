@@ -11,6 +11,9 @@ import Contact from './pages/Contact';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import PrivacyPolicy from './pages/privacy_policy';
+import TermsConditions from './pages/TermsConditions';
+import RefundPolicy from './pages/RefundPolicy';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/packages" element={<Packages />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
