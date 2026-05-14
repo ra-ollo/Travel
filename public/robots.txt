@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pawanhanslimted.in/sitemap.xml
+Sitemap: https://www.cxchardham.online/sitemap.xml
