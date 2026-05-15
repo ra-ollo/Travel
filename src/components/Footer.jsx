@@ -50,7 +50,7 @@ export default function Footer() {
             </li>
 
             <li>
-              <Link to="/privacy-policy" className="hover:underline">
+              <Link to="/privacy_policy" className="hover:underline">
                 Privacy Policy
               </Link>
             </li>
