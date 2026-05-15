@@ -9,7 +9,7 @@ export default function ThankYou() {
     //  Google Ads Conversion Tracking
     if (window.gtag) {
       window.gtag('event', 'conversion', {
-        send_to: 'AW-18139764842/Izf4CMWaq6gcEOqw28lD'
+        send_to: 'AW-18163647689'
       });
     }
 
