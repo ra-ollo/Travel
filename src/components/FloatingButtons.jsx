@@ -2,7 +2,7 @@ export default function FloatingButtons() {
   const handleCallClick = () => {
     if (window.gtag) {
       window.gtag('event', 'conversion', {
-        send_to: 'AW-18163647689/sWXUCOrczK0cEMmJjdVD'
+        send_to: 'AW-18163647689/r6SwCJX_0q0cEMmJjdVD'
       });
     }
   };
@@ -10,7 +10,7 @@ export default function FloatingButtons() {
   const handleWhatsAppClick = () => {
     if (window.gtag) {
       window.gtag('event', 'conversion', {
-        send_to: 'AW-18163647689/sWXUCOrczK0cEMmJjdVD'
+        send_to: 'AW-18163647689/enpBCI-l0q0cEMmJjdVD' 
       });
     }
   };
